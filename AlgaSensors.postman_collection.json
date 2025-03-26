@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "085656f1-7fb5-470b-98ad-8c5dbcea6310",
+		"_postman_id": "ee4a2b23-8e70-4364-8b6d-edffc9fc5b75",
 		"name": "AlgaSensors",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "4405010",
-		"_collection_link": "https://bold-crater-790192.postman.co/workspace/AlgaSensors~95e4ee80-cb91-4108-966f-82dd372b832d/collection/4405010-085656f1-7fb5-470b-98ad-8c5dbcea6310?action=share&source=collection_link&creator=4405010"
+		"_collection_link": "https://bold-crater-790192.postman.co/workspace/AlgaSensors~95e4ee80-cb91-4108-966f-82dd372b832d/collection/4405010-ee4a2b23-8e70-4364-8b6d-edffc9fc5b75?action=share&source=collection_link&creator=4405010"
 	},
 	"item": [
 		{
@@ -17,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"name\": \"Sensor DF55\",\r\n\t\"ip\": \"127.0.0.1\",\r\n\t\"location\": \"Marcus Street 2066\",\r\n\t\"protocol\": \"HTTP\",\r\n\t\"model\": \"S55-HTTP\",\r\n\t\"maxTemperatureToAlert\": 30,\r\n\t\"minTemperatureToAlert\": 1\r\n}",
+							"raw": "{\r\n\t\"name\": \"Sensor DF55\",\r\n\t\"ip\": \"127.0.0.1\",\r\n\t\"location\": \"Marcus Street 2066\",\r\n\t\"protocol\": \"HTTP\",\r\n\t\"model\": \"S55-HTTP\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -46,7 +46,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Sensor 11V\",\r\n    \"ip\": \"127.0.0.1\",\r\n    \"location\": \"Green Street 656\",\r\n    \"protocol\": \"HTTP\",\r\n    \"model\": \"V34-HTTP\",\r\n    \"maxTemperatureToAlert\": 50.0,\r\n    \"minTemperatureToAlert\": 10.0,\r\n    \"enabled\": false\r\n}",
+							"raw": "{\r\n    \"name\": \"Sensor 11V\",\r\n    \"ip\": \"127.0.0.1\",\r\n    \"location\": \"Green Street 656\",\r\n    \"protocol\": \"HTTP\",\r\n    \"model\": \"V34-HTTP\",\r\n    \"enabled\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -178,7 +178,7 @@
 							"variable": [
 								{
 									"key": "sensorId",
-									"value": "0K6ZYEYMTZ8QT"
+									"value": "0K79PF0XACMPX"
 								}
 							]
 						}
@@ -191,7 +191,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/sensors",
+							"raw": "http://localhost:8080/api/sensors?page=0&size=5&sort=id,desc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -200,6 +200,20 @@
 							"path": [
 								"api",
 								"sensors"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "id,desc"
+								}
 							]
 						}
 					},

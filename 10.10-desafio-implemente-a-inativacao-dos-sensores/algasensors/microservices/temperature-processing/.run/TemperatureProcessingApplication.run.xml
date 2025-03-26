@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TemperatureProcessingApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="com.algaworks.algasensors.temperature.processing.TemperatureProcessingApplication" />
+    <module name="temperature-processing.main" />
+    <option name="VM_PARAMETERS" value="-XX:MaxRAM=256m" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/microservices/temperature-processing" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.algaworks.algasensors.temperature.processing.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

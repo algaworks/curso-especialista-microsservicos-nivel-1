@@ -1,0 +1,19 @@
+server:
+  port: '8082'
+
+spring:
+  application.name: temperature-monitoring
+  datasource:
+    username: sa
+    url: jdbc:h2:file:~/algasensors-temperature-monitoring-db;CASE_INSENSITIVE_IDENTIFIERS=TRUE;
+    driverClassName: org.h2.Driver
+    password: '123'
+  h2:
+    console:
+      enabled: 'true'
+      settings.web-allow-others: 'true'
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
