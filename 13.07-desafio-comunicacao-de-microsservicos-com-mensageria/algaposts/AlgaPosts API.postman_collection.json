@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "0c748105-2fdd-4271-9c4b-bab2a857e5ce",
+		"name": "AlgaPosts API",
+		"description": "API REST do microsserviço PostService para criação e consulta de publicações.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4405010",
+		"_collection_link": "https://bold-crater-790192.postman.co/workspace/AlgaSensors~95e4ee80-cb91-4108-966f-82dd372b832d/collection/4405010-0c748105-2fdd-4271-9c4b-bab2a857e5ce?action=share&source=collection_link&creator=4405010"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "posts",
+					"item": [
+						{
+							"name": "{postId}",
+							"item": [
+								{
+									"name": "Consulta os detalhes de um post",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "localhost:8080/api/posts/:postId",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"posts",
+												":postId"
+											],
+											"variable": [
+												{
+													"key": "postId",
+													"value": "63bebb52-4775-48fa-8e1c-8247b042307b",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Detalhes do post",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/:postId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														":postId"
+													],
+													"variable": [
+														{
+															"key": "postId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"author\": \"<string>\",\n  \"wordCount\": \"<integer>\",\n  \"calculatedValue\": \"<float>\"\n}"
+										},
+										{
+											"name": "Post não encontrado",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/:postId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														":postId"
+													],
+													"variable": [
+														{
+															"key": "postId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Cria um novo post",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Olá Mundo\",\n  \"body\": \"Olá mundo com Java\\nNessa aula!\\nabc\",\n  \"author\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/posts",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"posts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Post criado com sucesso",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"author\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/posts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"posts"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"author\": \"<string>\",\n  \"wordCount\": \"<integer>\",\n  \"calculatedValue\": \"<float>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Lista posts com paginação",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/api/posts?page=0&size=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"posts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Lista de posts",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/posts?page=0&size=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"posts"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"page\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"totalElements\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"content\": [\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"author\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"author\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
