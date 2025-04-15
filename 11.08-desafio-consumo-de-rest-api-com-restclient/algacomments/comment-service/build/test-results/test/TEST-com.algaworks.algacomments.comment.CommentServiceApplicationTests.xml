@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.algaworks.algacomments.comment.CommentServiceApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-15T13:05:07.343Z" hostname="VOSTRO" time="1.098">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.algaworks.algacomments.comment.CommentServiceApplicationTests" time="1.098"/>
+  <system-out><![CDATA[10:05:05.111 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.algaworks.algacomments.comment.CommentServiceApplicationTests]: CommentServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:05:05.260 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.algaworks.algacomments.comment.CommentServiceApplication for test class com.algaworks.algacomments.comment.CommentServiceApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.4)
+
+2025-04-15T10:05:05.803-03:00  INFO 3128 --- [comment-service] [    Test worker] c.a.a.c.CommentServiceApplicationTests   : Starting CommentServiceApplicationTests using Java 21.0.4 with PID 3128 (started by alexc in C:\git\EMS-Git-finalizado\Projetos finais\algacomments\comment-service)
+2025-04-15T10:05:05.803-03:00  INFO 3128 --- [comment-service] [    Test worker] c.a.a.c.CommentServiceApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2025-04-15T10:05:07.308-03:00  INFO 3128 --- [comment-service] [    Test worker] c.a.a.c.CommentServiceApplicationTests   : Started CommentServiceApplicationTests in 1.856 seconds (process running for 3.312)
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\alexc\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.15.11\a38b16385e867f59a641330f0362ebe742788ed8\byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>
