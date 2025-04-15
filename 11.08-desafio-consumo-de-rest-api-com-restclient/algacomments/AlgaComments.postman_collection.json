@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "3299002a-37f8-43c4-b332-75bcbf4d2863",
+		"name": "AlgaComments",
+		"description": "API para gerenciamento de comentários com moderação",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4405010",
+		"_collection_link": "https://bold-crater-790192.postman.co/workspace/AlgaSensors~95e4ee80-cb91-4108-966f-82dd372b832d/collection/4405010-3299002a-37f8-43c4-b332-75bcbf4d2863?action=share&source=collection_link&creator=4405010"
+	},
+	"item": [
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Obtém um comentário por ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/api/comments/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"comments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "d9315460-7da0-4398-80dd-ef1b1d011ac5",
+											"description": "(Required) UUID do comentário"
+										}
+									]
+								},
+								"description": "Retorna os detalhes de um comentário específico"
+							},
+							"response": [
+								{
+									"name": "Comentário encontrado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/comments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<uuid>\",\n  \"text\": \"<string>\",\n  \"author\": \"<string>\",\n  \"status\": \"REJECTED\",\n  \"createdAt\": \"<dateTime>\",\n  \"rejectionReason\": \"<string>\"\n}"
+								},
+								{
+									"name": "Comentário não encontrado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/comments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"timestamp\": \"<dateTime>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Cria um novo comentário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"text\": \"Olá mundo!\",\n  \"author\": \"Alex\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/comments",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments"
+							]
+						},
+						"description": "Submete um novo comentário para moderação síncrona"
+					},
+					"response": [
+						{
+							"name": "Comentário criado e aprovado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"text\": \"<string>\",\n  \"author\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/comments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<uuid>\",\n  \"text\": \"<string>\",\n  \"author\": \"<string>\",\n  \"status\": \"REJECTED\",\n  \"createdAt\": \"<dateTime>\",\n  \"rejectionReason\": \"<string>\"\n}"
+						},
+						{
+							"name": "Comentário rejeitado na moderação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"text\": \"<string>\",\n  \"author\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/comments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"timestamp\": \"<dateTime>\"\n}"
+						},
+						{
+							"name": "Timeout na comunicação com o serviço de moderação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"text\": \"<string>\",\n  \"author\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/comments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"status": "Gateway Timeout",
+							"code": 504,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"timestamp\": \"<dateTime>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Lista comentários",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/comments?page=0&size=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"description": "Número da página (0-based)"
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "Tamanho da página"
+								}
+							]
+						},
+						"description": "Retorna uma lista paginada de comentários aprovados"
+					},
+					"response": [
+						{
+							"name": "Lista de comentários retornada com sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/comments?page=0&size=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comments"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0",
+											"description": "Número da página (0-based)"
+										},
+										{
+											"key": "size",
+											"value": "10",
+											"description": "Tamanho da página"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"content\": [\n    {\n      \"id\": \"<uuid>\",\n      \"text\": \"<string>\",\n      \"author\": \"<string>\",\n      \"status\": \"APPROVED\",\n      \"createdAt\": \"<dateTime>\",\n      \"rejectionReason\": \"<string>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"text\": \"<string>\",\n      \"author\": \"<string>\",\n      \"status\": \"APPROVED\",\n      \"createdAt\": \"<dateTime>\",\n      \"rejectionReason\": \"<string>\"\n    }\n  ],\n  \"page\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"totalElements\": \"<integer>\",\n  \"totalPages\": \"<integer>\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8081/api"
+		}
+	]
+}
